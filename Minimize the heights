@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	//code
+	int t; cin>>t;
+	while(t--){
+	    int k,n; cin>>k>>n;
+	    int a[n];
+	    int max1=INT_MIN;
+	    int min1=INT_MAX;
+	    for(int i=0;i<n;i++){
+	        cin>>a[i];
+	        max1 = max(max1,a[i]);
+	        min1 = min(min1,a[i]);
+	    }
+	    int mid = (min1+max1)/2;
+	    for(int i=0;i<n;i++)
+	        if(a[i]<=mid)
+	            a[i]+=k;
+	        else
+	            a[i]-=k;
+	            
+	    int max2=INT_MIN;
+	    int min2=INT_MAX;
+	    for(int i=0;i<n;i++){
+	        max2 = max(max2,a[i]);
+	        min2 = min(min2,a[i]);
+	    }
+	    
+	    cout<<min(max1-min1,max2-min2)<<endl;
+	}
+	return 0;
+}
