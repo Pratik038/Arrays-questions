@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+#define D 1000  
+int row(int n,int m,int a[D][D]){
+    int ans = 0;
+    int i=0,j=m-1;
+    while(i<n && j>=0){
+        if(a[i][j]==1){
+            ans=i;
+            j--;
+        }
+        else
+            i++;
+    }
+    return ans;
+}
+int main() {
+	//code
+	int t; cin>>t;
+	while(t--){
+	    int n,m; cin>>n>>m;
+	    int a[D][D];
+	    for(int i=0;i<n;i++)
+	        for(int j=0;j<m;j++) cin>>a[i][j];
+	        
+	    cout<<row(n,m,a)<<endl;
+	}
+	return 0;
+}
